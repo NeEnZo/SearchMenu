@@ -2,12 +2,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.models import Base
 import os
+from pathlib import Path
 
-# 数据库路径（使用绝对路径）
-DB_PATH = "/mnt/c/SearchMenu/backend/search_menu.db"
+# 数据库路径：优先使用环境变量，否则使用 app/ 所在目录的上一级（即 backend/ 或 /app/）
+_default_db_path = str(Path(__file__).parent.parent / "search_menu.db")
+DB_PATH = os.environ.get("DB_PATH", _default_db_path)
 
 # 确保目录存在
-os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+os.makedirs(os.path.dirname(os.path.abspath(DB_PATH)), exist_ok=True)
 
 # 数据库连接字符串（使用 SQLite）
 DATABASE_URL = f"sqlite:///{DB_PATH}"

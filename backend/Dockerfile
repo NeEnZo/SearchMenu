@@ -22,6 +22,7 @@ COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/app/ ./app/
+# builder 阶段 os.chdir 到 /build，database.py 相对路径生成 db 在 /build/search_menu.db
 COPY --from=builder /build/search_menu.db ./search_menu.db
 
 EXPOSE 8000
