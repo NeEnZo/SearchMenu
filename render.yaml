@@ -1,0 +1,15 @@
+# Render 自动部署配置（https://render.com/docs/render-yaml）
+# 将此文件提交到 GitHub 根目录后，Render 会自动读取
+
+services:
+  - type: web
+    name: searchmenu-backend
+    runtime: docker
+    # 使用项目根目录作为 Docker 构建上下文
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+    # 免费计划：15 分钟无请求后休眠（首次访问约 30 秒冷启动）
+    plan: free
+    healthCheckPath: /health
