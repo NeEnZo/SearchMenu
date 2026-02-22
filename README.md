@@ -2,7 +2,7 @@
 
 基于 [HowToCook](https://github.com/Anduin2017/HowToCook) 菜谱数据的搜索与推荐平台。支持随机推荐、按食材推荐、分类/难度筛选及菜品详情查看。
 
-**🔗 在线体验：[search-menu-lime.vercel.app](https://search-menu-lime.vercel.app)**
+**🔗 在线体验：[searchmenu.vercel.app](https://searchmenu.vercel.app)**
 
 > 后端托管于 Render 免费计划，15 分钟无请求后休眠，首次访问约需 30 秒冷启动。
 
